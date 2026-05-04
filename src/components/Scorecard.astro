@@ -1,0 +1,84 @@
+---
+import { scorecard } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<section id="scorecard" class="relative bg-cream py-24 sm:py-28">
+  <div class="container-club">
+    <SectionHeader
+      eyebrow="Hole 01 · Career Scorecard"
+      title={scorecard.title}
+      caption={scorecard.caption}
+    />
+
+    <!-- Scorecard ledger: a real golf scorecard's columnar feel, in cream paper. -->
+    <div class="mt-12 overflow-hidden rounded-2xl border border-fairway/15 bg-cream-paper shadow-card">
+      <!-- Header strip -->
+      <div class="flex items-center justify-between bg-fairway px-6 py-4 text-cream">
+        <div class="flex items-center gap-3">
+          <span class="grid h-6 w-6 place-items-center rounded-full border border-gold text-[10px] font-mono">DT</span>
+          <span class="font-mono text-[10px] uppercase tracking-widest2 text-cream/80">
+            Official Scorecard · The Tipton Course
+          </span>
+        </div>
+        <span class="font-mono text-[10px] uppercase tracking-widest2 text-gold">
+          Front Nine
+        </span>
+      </div>
+
+      <!-- Column headers (desktop) -->
+      <div class="hidden grid-cols-12 gap-4 border-b border-fairway/10 bg-cream-deep px-6 py-3 sm:grid">
+        <div class="col-span-1 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+          Hole
+        </div>
+        <div class="col-span-6 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+          Discipline
+        </div>
+        <div class="col-span-3 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+          Score
+        </div>
+        <div class="col-span-2 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+          Par
+        </div>
+      </div>
+
+      <ul class="divide-y divide-fairway/10">
+        {scorecard.stats.map((stat) => (
+          <li class="scorecard-row grid grid-cols-1 gap-2 px-6 py-5 sm:grid-cols-12 sm:items-center sm:gap-4">
+            <div class="col-span-1 flex items-center gap-3 sm:gap-0">
+              <span class="font-mono text-[10px] uppercase tracking-widest2 text-gold sm:hidden">
+                Hole
+              </span>
+              <span class="font-mono text-sm font-medium text-fairway">{stat.hole}</span>
+            </div>
+            <div class="col-span-6">
+              <p class="font-display text-xl text-fairway sm:text-2xl">
+                {stat.label}
+              </p>
+            </div>
+            <div class="col-span-3">
+              <span class="inline-flex items-center rounded-full border border-fairway/15 bg-cream px-3 py-1 font-mono text-xs text-charcoal">
+                {stat.value}
+              </span>
+            </div>
+            <div class="col-span-2">
+              <span class="font-mono text-[11px] uppercase tracking-widest2 text-charcoal-muted">
+                {stat.par}
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Footer strip -->
+      <div class="flex items-center justify-between border-t border-fairway/10 bg-cream-deep px-6 py-4">
+        <span class="font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+          Course Rating · Executive · Tournament
+        </span>
+        <span class="font-mono text-[10px] uppercase tracking-widest2 text-fairway">
+          Total · Under Par
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

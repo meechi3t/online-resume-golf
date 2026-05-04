@@ -1,0 +1,115 @@
+/* Tailwind base layers + global typography. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  ::selection {
+    @apply bg-fairway text-cream;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-fairway;
+    letter-spacing: -0.01em;
+  }
+
+  /* Respect reduced-motion users: disable smooth scroll + animations. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-club {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-widest2 text-gold;
+  }
+
+  .rule-gold {
+    @apply h-px w-12 bg-gold;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+
+  .btn-primary {
+    @apply btn bg-fairway text-cream hover:bg-fairway-light hover:shadow-card-hover;
+  }
+
+  .btn-outline {
+    @apply btn border border-fairway/30 bg-transparent text-fairway hover:border-fairway hover:bg-fairway hover:text-cream;
+  }
+
+  .btn-gold {
+    @apply btn border border-gold bg-transparent text-fairway hover:bg-gold/10;
+  }
+
+  .card {
+    @apply rounded-2xl border border-fairway/10 bg-cream-paper p-7 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover;
+  }
+
+  .label-tag {
+    @apply inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest2 text-fairway/70;
+  }
+
+  /* Scorecard ledger row hover */
+  .scorecard-row {
+    @apply transition-colors duration-200;
+  }
+  .scorecard-row:hover {
+    @apply bg-fairway/[0.04];
+  }
+}
+
+@layer utilities {
+  /* Hairline rule used for club-style dividers. */
+  .hairline {
+    background-image: linear-gradient(
+      to right,
+      transparent 0,
+      rgba(11, 61, 46, 0.18) 12%,
+      rgba(11, 61, 46, 0.18) 88%,
+      transparent 100%
+    );
+    height: 1px;
+  }
+
+  .hairline-gold {
+    background-image: linear-gradient(
+      to right,
+      transparent 0,
+      rgba(201, 169, 97, 0.6) 12%,
+      rgba(201, 169, 97, 0.6) 88%,
+      transparent 100%
+    );
+    height: 1px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

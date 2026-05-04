@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+# Build + deploy on every push to main, and allow manual runs.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Token permissions required by the deploy-pages action.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one concurrent deploy at a time.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build with Astro
+        uses: withastro/action@v3
+        # Defaults: detects package manager, runs `npm run build`, uploads ./dist as the artifact.
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

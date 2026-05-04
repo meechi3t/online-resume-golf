@@ -1,0 +1,30 @@
+---
+/**
+ * Reusable section header with eyebrow, hairline rule, title, and caption.
+ * Drop above any major section to get consistent spacing/typography.
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  caption?: string;
+  align?: 'left' | 'center';
+}
+
+const { eyebrow, title, caption, align = 'left' } = Astro.props;
+const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
+---
+
+<header class={`max-w-2xl ${alignClass}`}>
+  {eyebrow && (
+    <div class={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
+      <span class="rule-gold"></span>
+      <span class="eyebrow">{eyebrow}</span>
+    </div>
+  )}
+  <h2 class="mt-4 font-display text-4xl leading-[1.05] sm:text-5xl">{title}</h2>
+  {caption && (
+    <p class="mt-4 max-w-xl text-balance text-base text-charcoal-muted">
+      {caption}
+    </p>
+  )}
+</header>

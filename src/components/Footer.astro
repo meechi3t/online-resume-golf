@@ -1,0 +1,51 @@
+---
+import { site, nav } from '../data/content';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-fairway/10 bg-cream pb-10 pt-12">
+  <div class="container-club">
+    <div class="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+      <div class="flex items-center gap-3">
+        <span
+          class="grid h-9 w-9 place-items-center rounded-full border border-gold/60 bg-fairway font-display text-sm text-cream"
+          aria-hidden="true"
+        >
+          DT
+        </span>
+        <div class="leading-tight">
+          <p class="font-display text-base text-fairway">
+            {site.name}
+            <span class="ml-1 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+              ({site.pronouns})
+            </span>
+          </p>
+          <p class="font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+            {site.title}
+          </p>
+        </div>
+      </div>
+
+      <nav aria-label="Footer">
+        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2">
+          {nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted transition-colors hover:text-fairway"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="hairline-gold mt-10"></div>
+
+    <p class="mt-6 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+      © {year} {site.name} · The Tipton Course · Played with precision.
+    </p>
+  </div>
+</footer>

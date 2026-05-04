@@ -1,0 +1,8 @@
+Replace this directory's `resume.pdf` with your real PDF.
+
+Expected filename: resume.pdf
+Expected location: /public/resume.pdf
+
+The Hero, Navigation, and Contact sections all link to `/resume.pdf`. If you
+want a different filename or path, update `site.resumePdf` in
+`src/data/content.ts` and the link will propagate everywhere.

@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / Editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Resume — kept OUT of the repo because the original contains a phone number.
+# Replace public/resume.pdf locally with a sanitized "public" version
+# (no phone, redacted contact info) and remove this line if you want to ship it.
+/public/resume.pdf

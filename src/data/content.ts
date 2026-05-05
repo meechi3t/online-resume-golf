@@ -93,7 +93,7 @@ export const hero = {
     'I specialize in white-glove technical support for senior leaders, Office of the CEO escalations, and high-visibility business moments where the technology simply has to work.',
   supportingLine:
     'White-glove technical support for high-stakes executive environments, powered by calm troubleshooting, automation, and thoughtful process design.',
-  course: 'The Tipton Course · Est. 2015',
+  course: 'Tip10 CC · Est. 2015',
 };
 
 // ─── About (LinkedIn-style intro with a closing pull-quote) ─────────────────

@@ -1,11 +1,19 @@
 ---
 /**
  * About — short LinkedIn-style intro that sits between Hero and Scorecard.
- * Two-column on lg: paragraph on the left, pull-quote callout on the right.
- * Reflows to a single column on mobile; pull-quote drops below the body.
+ *
+ * Layout:
+ *   lg+: 12-col grid. Portrait spans col-span-5 (left), body + pull-quote spans col-span-7 (right).
+ *   md and below: portrait stacks above body, constrained to max-w-sm and centered.
+ *
+ * Portrait treatment (Option B): portrait-crop (4:5), rounded-3xl, hairline gold border,
+ * fairway-green monogram placeholder until `about.portrait.src` is set in content.ts.
  */
 import { about } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
+
+const portrait = about.portrait;
+const hasPortraitSrc = Boolean(portrait.src);
 ---
 
 <section id="about" class="relative bg-cream-paper py-24 sm:py-28">
@@ -13,7 +21,52 @@ import SectionHeader from './SectionHeader.astro';
     <SectionHeader eyebrow={about.eyebrow} title={about.title} />
 
     <div class="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-12">
-      <!-- Body paragraph -->
+      <!-- Portrait column (left on lg+, top on smaller) -->
+      <div class="col-span-12 lg:col-span-5">
+        <div class="mx-auto w-full max-w-sm lg:max-w-none">
+          <!-- Framed plate: rounded square, hairline gold, soft shadow, inset cream ring. -->
+          <figure
+            class="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-gold/60 bg-fairway shadow-card ring-1 ring-inset ring-cream/10"
+            role={hasPortraitSrc ? undefined : 'img'}
+            aria-label={hasPortraitSrc ? undefined : `Placeholder for ${portrait.alt}'s portrait`}
+          >
+            {hasPortraitSrc ? (
+              <img
+                src={portrait.src}
+                alt={portrait.alt}
+                width="800"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+              />
+            ) : (
+              <!-- Monogram placeholder: fairway-green plate with subtle grain, engraved DT, hairline rule, and label. -->
+              <div class="absolute inset-0 bg-fairway-grain bg-grain opacity-60"></div>
+              <div class="relative flex h-full w-full flex-col items-center justify-center px-6 text-center">
+                <span
+                  class="select-none font-display leading-none text-cream/90"
+                  style="font-size: clamp(5rem, 12vw, 8rem);"
+                  aria-hidden="true"
+                >
+                  DT
+                </span>
+                <span class="mt-5 block h-px w-12 bg-gold"></span>
+                <span class="mt-4 font-mono text-[10px] uppercase tracking-widest2 text-cream/60">
+                  Member’s Portrait · Placeholder
+                </span>
+              </div>
+            )}
+          </figure>
+
+          <!-- Caption strip below the framed plate -->
+          <p class="mt-3 text-center font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+            {portrait.caption}
+          </p>
+        </div>
+      </div>
+
+      <!-- Copy column (right on lg+, below on smaller) -->
       <div class="col-span-12 lg:col-span-7">
         <p class="text-lg leading-relaxed text-charcoal sm:text-xl">
           {about.body}
@@ -24,34 +77,34 @@ import SectionHeader from './SectionHeader.astro';
             Member · Story
           </span>
         </div>
-      </div>
 
-      <!-- Pull-quote callout -->
-      <aside class="col-span-12 lg:col-span-5">
-        <figure class="card relative h-full border-fairway/15">
-          <!-- Hairline-gold corner brackets, matching Trophy Case rhythm -->
-          <span class="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t border-gold/60"></span>
-          <span class="pointer-events-none absolute right-3 top-3 h-3 w-3 border-r border-t border-gold/60"></span>
-          <span class="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b border-l border-gold/60"></span>
-          <span class="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b border-r border-gold/60"></span>
+        <!-- Pull-quote callout — preserved from prior layout, now stacked under the body. -->
+        <aside class="mt-10">
+          <figure class="card relative border-fairway/15">
+            <!-- Hairline-gold corner brackets, matching Trophy Case rhythm -->
+            <span class="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t border-gold/60"></span>
+            <span class="pointer-events-none absolute right-3 top-3 h-3 w-3 border-r border-t border-gold/60"></span>
+            <span class="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b border-l border-gold/60"></span>
+            <span class="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b border-r border-gold/60"></span>
 
-          <span
-            class="pointer-events-none absolute -top-2 left-6 select-none font-display text-7xl leading-none text-gold/40"
-            aria-hidden="true"
-          >
-            &ldquo;
-          </span>
-          <blockquote class="mt-2 font-display text-xl italic leading-relaxed text-gold sm:text-2xl">
-            {about.pullQuote}
-          </blockquote>
-          <figcaption class="mt-6 flex items-center gap-3">
-            <span class="rule-gold"></span>
-            <span class="font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
-              Tipton · Practice Tee
+            <span
+              class="pointer-events-none absolute -top-2 left-6 select-none font-display text-7xl leading-none text-gold/40"
+              aria-hidden="true"
+            >
+              &ldquo;
             </span>
-          </figcaption>
-        </figure>
-      </aside>
+            <blockquote class="mt-2 font-display text-xl italic leading-relaxed text-gold sm:text-2xl">
+              {about.pullQuote}
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="rule-gold"></span>
+              <span class="font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+                Tipton · Practice Tee
+              </span>
+            </figcaption>
+          </figure>
+        </aside>
+      </div>
     </div>
   </div>
 </section>

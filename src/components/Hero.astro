@@ -54,9 +54,16 @@ import { hero, site } from '../data/content';
       </span>
     </div>
 
-    <p class="font-mono text-xs uppercase tracking-widest2 text-cream/60 animate-fade-up">
-      {hero.title}
-    </p>
+    <div class="space-y-1">
+      {hero.titles.map((line, i) => (
+        <p
+          class="font-mono text-xs uppercase tracking-widest2 text-cream/60 animate-fade-up"
+          style={`animation-delay: ${i * 60}ms`}
+        >
+          {line}
+        </p>
+      ))}
+    </div>
 
     <p
       class="mt-3 font-display text-xl italic text-gold/90 animate-fade-up sm:text-2xl"

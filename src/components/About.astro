@@ -1,0 +1,57 @@
+---
+/**
+ * About — short LinkedIn-style intro that sits between Hero and Scorecard.
+ * Two-column on lg: paragraph on the left, pull-quote callout on the right.
+ * Reflows to a single column on mobile; pull-quote drops below the body.
+ */
+import { about } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<section id="about" class="relative bg-cream-paper py-24 sm:py-28">
+  <div class="container-club">
+    <SectionHeader eyebrow={about.eyebrow} title={about.title} />
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-12">
+      <!-- Body paragraph -->
+      <div class="col-span-12 lg:col-span-7">
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl">
+          {about.body}
+        </p>
+        <div class="mt-8 flex items-center gap-3">
+          <span class="rule-gold"></span>
+          <span class="font-mono text-[11px] uppercase tracking-widest2 text-charcoal-muted">
+            Member · Story
+          </span>
+        </div>
+      </div>
+
+      <!-- Pull-quote callout -->
+      <aside class="col-span-12 lg:col-span-5">
+        <figure class="card relative h-full border-fairway/15">
+          <!-- Hairline-gold corner brackets, matching Trophy Case rhythm -->
+          <span class="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t border-gold/60"></span>
+          <span class="pointer-events-none absolute right-3 top-3 h-3 w-3 border-r border-t border-gold/60"></span>
+          <span class="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b border-l border-gold/60"></span>
+          <span class="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b border-r border-gold/60"></span>
+
+          <span
+            class="pointer-events-none absolute -top-2 left-6 select-none font-display text-7xl leading-none text-gold/40"
+            aria-hidden="true"
+          >
+            &ldquo;
+          </span>
+          <blockquote class="mt-2 font-display text-xl italic leading-relaxed text-gold sm:text-2xl">
+            {about.pullQuote}
+          </blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <span class="rule-gold"></span>
+            <span class="font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+              Tipton · Practice Tee
+            </span>
+          </figcaption>
+        </figure>
+      </aside>
+    </div>
+  </div>
+</section>

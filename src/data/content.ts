@@ -74,9 +74,9 @@ export const site = {
 export const nav: NavItem[] = [
   { label: 'About', href: '#about' },
   { label: 'Scorecard', href: '#scorecard' },
-  { label: 'Trophy Case', href: '#trophy-case' },
-  { label: 'Experience', href: '#experience' },
   { label: 'In the Bag', href: '#toolbag' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Trophy Case', href: '#trophy-case' },
   { label: 'Members', href: '#recommendations' },
   { label: 'Contact', href: '#contact' },
 ];

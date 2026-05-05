@@ -73,7 +73,7 @@ export const site = {
 // ─── Navigation ─────────────────────────────────────────────────────────────
 export const nav: NavItem[] = [
   { label: 'About', href: '#about' },
-  { label: 'Scorecard', href: '#scorecard' },
+  { label: 'Highlights', href: '#scorecard' },
   { label: 'In the Bag', href: '#toolbag' },
   { label: 'Experience', href: '#experience' },
   { label: 'Trophy Case', href: '#trophy-case' },
@@ -116,7 +116,7 @@ export const about = {
 
 // ─── Scorecard ──────────────────────────────────────────────────────────────
 export const scorecard = {
-  title: 'Career Scorecard',
+  title: 'Career Highlights',
   caption:
     'Nine holes through a decade of executive support — the through-lines that show up in every round.',
   stats: [

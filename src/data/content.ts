@@ -63,7 +63,7 @@ export const site = {
   title: 'Sr. Executive Support Engineer',
   domain: 'demetrius.tip10.tech',
   description:
-    'Senior Executive Support Engineer specializing in white-glove technical support for senior leaders, Office of the CEO escalations, and high-visibility business moments where the technology simply has to work.',
+    'Senior Executive Support Engineer specializing in white-glove technical support for senior leaders, workflow automations that quietly reduce friction, and high-visibility moments where the technology simply has to work.',
   // OG image path (drop a 1200x630 image into /public and reference it here).
   ogImage: '/og-image.jpg',
   // Resume PDF — replace /public/resume.pdf with your real file.
@@ -83,13 +83,16 @@ export const nav: NavItem[] = [
 
 // ─── Hero ───────────────────────────────────────────────────────────────────
 export const hero = {
-  eyebrow: 'Tipton · Executive IT',
+  eyebrow: 'Demetrius Tipton',
   name: 'Demetrius Tipton',
-  title: 'Sr. Executive Support Engineer · LinkedIn',
+  titles: [
+    'Sr. Executive Support Engineer · LinkedIn',
+    'Founder · Tip10 Technologies',
+  ],
   tagline: 'Trusted Technical Partner.',
   headline: 'Executive IT Support, Played with Precision.',
   intro:
-    'I specialize in white-glove technical support for senior leaders, Office of the CEO escalations, and high-visibility business moments where the technology simply has to work.',
+    'I specialize in white-glove technical support for senior leaders, workflow automations that quietly reduce friction, and high-visibility moments where the technology simply has to work.',
   supportingLine:
     'White-glove technical support for high-stakes executive environments, powered by calm troubleshooting, automation, and thoughtful process design.',
   course: 'Tip10 CC · Est. 2015',

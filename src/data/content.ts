@@ -77,7 +77,6 @@ export const nav: NavItem[] = [
   { label: 'Trophy Case', href: '#trophy-case' },
   { label: 'Experience', href: '#experience' },
   { label: 'Toolbag', href: '#toolbag' },
-  { label: 'Clubhouse', href: '#clubhouse' },
   { label: 'Members', href: '#recommendations' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -261,19 +260,6 @@ export const toolbag = {
     { name: 'iOS', category: 'Endpoints' },
     { name: 'AV / Conference Room Tech', category: 'Operations' },
   ] as Tool[],
-};
-
-// ─── Clubhouse Notes (leadership style) ────────────────────────────────────
-export const clubhouse = {
-  title: 'Clubhouse Notes',
-  subtitle: 'Leadership Style',
-  body:
-    'Calm under pressure and trusted by executives — I am at my best when the stakes are high, the audience is senior, and the expectation is invisible excellence. My approach is calm, precise, and service-minded: solve the issue, reduce the friction, and improve the process so the same problem does not keep coming back.',
-  pillars: [
-    { label: 'Calm', body: 'Steady under pressure when the room is watching.' },
-    { label: 'Precise', body: 'Right answer, right context, right timing.' },
-    { label: 'Service-Minded', body: 'Concierge defaults — assume good intent, lead with help.' },
-  ],
 };
 
 // ─── Member's Credentials (education + certifications) ─────────────────────

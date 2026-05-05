@@ -76,7 +76,7 @@ export const nav: NavItem[] = [
   { label: 'Scorecard', href: '#scorecard' },
   { label: 'Trophy Case', href: '#trophy-case' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Toolbag', href: '#toolbag' },
+  { label: 'In the Bag', href: '#toolbag' },
   { label: 'Members', href: '#recommendations' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -239,7 +239,7 @@ export const experience = {
 
 // ─── Toolbag (skills grid) ──────────────────────────────────────────────────
 export const toolbag = {
-  title: 'The Toolbag',
+  title: 'What’s in the Bag',
   caption: 'The clubs I reach for — chosen for the shot, not for show.',
   tools: [
     { name: 'Microsoft 365', category: 'Cloud & Identity' },

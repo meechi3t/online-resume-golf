@@ -47,6 +47,7 @@ export type Recommendation = {
   role: string; // recommender's title / company line
   relationship: string; // how they know me
   quote: string; // verbatim excerpt
+  linkedinUrl?: string; // optional override; falls back to LinkedIn search URL
 };
 
 export type Credential = {

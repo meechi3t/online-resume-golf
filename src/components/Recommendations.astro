@@ -4,9 +4,16 @@
  * 3-column grid on lg, 2-column on sm, 1-column on mobile.
  * Card visual rhythm matches TrophyCase: hairline-gold corner brackets,
  * label-tag eyebrow, italic display pull-quote, gold rule, attribution.
+ *
+ * Each recommender's name is a clickable link to LinkedIn. Prefers an
+ * explicit `linkedinUrl` if set on the data record; otherwise falls back
+ * to a universal LinkedIn keyword-search URL (never wrong-person).
  */
 import { recommendations } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
+
+const buildSearchUrl = (name: string) =>
+  `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(name)}`;
 ---
 
 <section id="recommendations" class="relative bg-cream py-24 sm:py-28">
@@ -56,7 +63,35 @@ import SectionHeader from './SectionHeader.astro';
 
           <div class="mt-auto pt-6">
             <div class="hairline-gold mb-4"></div>
-            <p class="font-display text-base text-fairway">{rec.name}</p>
+            <p class="font-display text-base text-fairway">
+              <a
+                href={rec.linkedinUrl ?? buildSearchUrl(rec.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group/link inline-flex items-center gap-1.5 rounded-sm text-fairway transition-colors duration-200 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+              >
+                <span class="underline-offset-4 group-hover/link:underline group-hover/link:decoration-gold">
+                  {rec.name}
+                </span>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  class="text-gold/70 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-gold"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 11L11 5M11 5H5.5M11 5V10.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="sr-only">(opens LinkedIn in a new tab)</span>
+              </a>
+            </p>
             <p class="mt-1 text-sm leading-snug text-charcoal-muted">{rec.role}</p>
             <p class="mt-1 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
               {rec.relationship}

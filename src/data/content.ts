@@ -95,14 +95,12 @@ export const hero = {
   course: 'Tip10 CC · Est. 2015',
 };
 
-// ─── About (LinkedIn-style intro with a closing pull-quote) ─────────────────
+// ─── About (LinkedIn-style intro) ──────────────────────────────────────────
 export const about = {
   eyebrow: 'The Member · About',
   title: 'On the Practice Tee.',
   body:
     "As an Executive Support Engineer at LinkedIn, I provide technical support and solutions to the company's senior leaders and executives. I have over 10 years of experience in IT troubleshooting and problem solving, working with Mac, Windows, and mobile devices, as well as BASH and PowerShell. I am passionate about empowering others with technology while giving them the understanding they need to teach another.",
-  pullQuote:
-    'Empowering others with technology — giving them the understanding they need to teach another.',
   // Member's portrait — Option B (portrait crop, rounded square, gold hairline, fairway-green background).
   // EDIT: leave `src` empty to render the monogram placeholder. Set to e.g. '/img/demetrius.jpg'
   // (drop the file in /public/img/) once a real photo is added — that one-line edit is the only

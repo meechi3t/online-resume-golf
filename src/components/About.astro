@@ -3,7 +3,7 @@
  * About — short LinkedIn-style intro that sits between Hero and Scorecard.
  *
  * Layout:
- *   lg+: 12-col grid. Portrait spans col-span-5 (left), body + pull-quote spans col-span-7 (right).
+ *   lg+: 12-col grid. Portrait spans col-span-5 (left), body spans col-span-7 (right).
  *   md and below: portrait stacks above body, constrained to max-w-sm and centered.
  *
  * Portrait treatment (Option B): portrait-crop (4:5), rounded-3xl, hairline gold border,
@@ -77,33 +77,6 @@ const hasPortraitSrc = Boolean(portrait.src);
             Member · Story
           </span>
         </div>
-
-        <!-- Pull-quote callout — preserved from prior layout, now stacked under the body. -->
-        <aside class="mt-10">
-          <figure class="card relative border-fairway/15">
-            <!-- Hairline-gold corner brackets, matching Trophy Case rhythm -->
-            <span class="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t border-gold/60"></span>
-            <span class="pointer-events-none absolute right-3 top-3 h-3 w-3 border-r border-t border-gold/60"></span>
-            <span class="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b border-l border-gold/60"></span>
-            <span class="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b border-r border-gold/60"></span>
-
-            <span
-              class="pointer-events-none absolute -top-2 left-6 select-none font-display text-7xl leading-none text-gold/40"
-              aria-hidden="true"
-            >
-              &ldquo;
-            </span>
-            <blockquote class="mt-2 font-display text-xl italic leading-relaxed text-gold sm:text-2xl">
-              {about.pullQuote}
-            </blockquote>
-            <figcaption class="mt-6 flex items-center gap-3">
-              <span class="rule-gold"></span>
-              <span class="font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
-                Tipton · Practice Tee
-              </span>
-            </figcaption>
-          </figure>
-        </aside>
       </div>
     </div>
   </div>

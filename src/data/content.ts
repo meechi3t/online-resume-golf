@@ -74,9 +74,9 @@ export const site = {
 export const nav: NavItem[] = [
   { label: 'About', href: '#about' },
   { label: 'Highlights', href: '#scorecard' },
-  { label: 'In the Bag', href: '#toolbag' },
+  { label: 'The Bag', href: '#toolbag' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Trophy Case', href: '#trophy-case' },
+  { label: 'Accolades', href: '#trophy-case' },
   { label: 'Members', href: '#recommendations' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -131,7 +131,7 @@ export const scorecard = {
 
 // ─── Trophy case / featured wins ────────────────────────────────────────────
 export const trophyCase = {
-  title: 'Trophy Case',
+  title: 'Accolades',
   subtitle: 'Featured Wins',
   caption: 'A short list of the work I am proud of — the kind that earns trust quietly.',
   wins: [

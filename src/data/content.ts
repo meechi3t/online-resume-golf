@@ -32,7 +32,7 @@ export type ExperienceRole = {
 
 export type Tool = {
   name: string;
-  category: 'Cloud & Identity' | 'Automation' | 'Endpoints' | 'Operations';
+  category: 'Cloud & Identity' | 'Automation' | 'Endpoints' | 'Operations' | 'AI';
 };
 
 export type ContactLink = {
@@ -86,8 +86,8 @@ export const hero = {
   eyebrow: 'Demetrius Tipton',
   name: 'Demetrius Tipton',
   titles: [
-    'Sr. Executive Support Engineer · LinkedIn',
-    'Founder · Tip10 Technologies',
+    'LinkedIn · Sr. Executive Support Engineer',
+    'Tip10 Technologies · Founder',
   ],
   tagline: 'Trusted Technical Partner.',
   headline: 'Executive IT Support, Played with Precision.',
@@ -143,33 +143,21 @@ export const trophyCase = {
     },
     {
       marker: 'WIN 02',
-      title: 'Executive AV, Worldwide',
-      body:
-        'Delivered onsite and offsite A/V and technical support for high-profile executive meetings and events around the world — the same standard whether the audience is three people or three thousand.',
-    },
-    {
-      marker: 'WIN 03',
       title: 'Automation that Reduces Friction',
       body:
         'Built and deployed PowerShell-based applications and automations that reduce tech friction on executives and across the IT org — turning hours of repetitive work into a single, quiet command.',
     },
     {
-      marker: 'WIN 04',
+      marker: 'WIN 03',
       title: 'Mentor & Trainer',
       body:
         'Trained and guided newer Executive Support Engineers in the craft of white-glove support — codifying the calm, the cadence, and the discretion that the role requires.',
     },
     {
-      marker: 'WIN 05',
+      marker: 'WIN 04',
       title: 'Tip10 Technologies, LLC',
       body:
         'Founded a boutique IT consulting firm specializing in Microsoft 365 administration, workflow automation, and SMB tech strategy — including a managed M365 tenant for a small non-profit.',
-    },
-    {
-      marker: 'WIN 06',
-      title: 'Black Inclusion Group · Office Co-Lead',
-      body:
-        'Office Co-Lead for LinkedIn’s Black Inclusion Group (BIG), facilitating DEI initiatives, mentorship, and networking — leadership that shows up beyond the ticket queue.',
     },
   ] as TrophyWin[],
 };
@@ -265,6 +253,9 @@ export const toolbag = {
     { name: 'Windows', category: 'Endpoints' },
     { name: 'iOS', category: 'Endpoints' },
     { name: 'AV / Conference Room Tech', category: 'Operations' },
+    { name: 'Claude Code', category: 'AI' },
+    { name: 'OpenAI Codex', category: 'AI' },
+    { name: 'Agentic Development', category: 'AI' },
   ] as Tool[],
 };
 

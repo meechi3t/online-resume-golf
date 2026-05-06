@@ -9,7 +9,7 @@ const grouped = toolbag.tools.reduce<Record<string, typeof toolbag.tools>>((acc,
 }, {});
 
 // Preserve a stable category order even if data shifts.
-const categoryOrder = ['Cloud & Identity', 'Automation', 'Endpoints', 'Operations'];
+const categoryOrder = ['Cloud & Identity', 'Automation', 'Endpoints', 'Operations', 'AI'];
 const orderedCategories = categoryOrder.filter((c) => grouped[c]);
 ---
 

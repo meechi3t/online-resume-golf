@@ -6,7 +6,6 @@ import SectionHeader from './SectionHeader.astro';
 <section id="scorecard" class="relative bg-cream py-24 sm:py-28">
   <div class="container-club">
     <SectionHeader
-      eyebrow="The Scorecard"
       title={scorecard.title}
       caption={scorecard.caption}
     />
@@ -18,20 +17,17 @@ import SectionHeader from './SectionHeader.astro';
         <div class="flex items-center gap-3">
           <span class="grid h-6 w-6 place-items-center rounded-full border border-gold text-[10px] font-mono">DT</span>
           <span class="font-mono text-[10px] uppercase tracking-widest2 text-cream/80">
-            Official Scorecard · Tip10 CC
+            Member Highlights
           </span>
         </div>
-        <span class="font-mono text-[10px] uppercase tracking-widest2 text-gold">
-          Front Nine
-        </span>
       </div>
 
       <!-- Column headers (desktop) -->
       <div class="hidden grid-cols-12 gap-4 border-b border-fairway/10 bg-cream-deep px-6 py-3 sm:grid">
-        <div class="col-span-1 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
-          Hole
+        <div class="col-span-2 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+          Company
         </div>
-        <div class="col-span-6 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
+        <div class="col-span-5 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
           Discipline
         </div>
         <div class="col-span-3 font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
@@ -45,13 +41,13 @@ import SectionHeader from './SectionHeader.astro';
       <ul class="divide-y divide-fairway/10">
         {scorecard.stats.map((stat) => (
           <li class="scorecard-row grid grid-cols-1 gap-2 px-6 py-5 sm:grid-cols-12 sm:items-center sm:gap-4">
-            <div class="col-span-1 flex items-center gap-3 sm:gap-0">
+            <div class="col-span-2 flex items-center gap-3 sm:gap-0">
               <span class="font-mono text-[10px] uppercase tracking-widest2 text-gold sm:hidden">
-                Hole
+                Company
               </span>
-              <span class="font-mono text-sm font-medium text-fairway">{stat.hole}</span>
+              <span class="font-mono text-sm font-medium text-fairway">{stat.company}</span>
             </div>
-            <div class="col-span-6">
+            <div class="col-span-5">
               <p class="font-display text-xl text-fairway sm:text-2xl">
                 {stat.label}
               </p>

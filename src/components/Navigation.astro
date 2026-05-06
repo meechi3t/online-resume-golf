@@ -15,9 +15,6 @@ import { nav, site } from '../data/content';
       <span class="flex items-baseline leading-tight">
         <span class="font-display text-base text-fairway">
           {site.name}
-          <span class="ml-1 hidden font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted sm:inline">
-            ({site.pronouns})
-          </span>
         </span>
       </span>
     </a>
@@ -39,10 +36,13 @@ import { nav, site } from '../data/content';
 
     <a
       href={site.resumePdf}
-      class="hidden rounded-full border border-fairway/30 px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest2 text-fairway transition-all duration-300 hover:border-gold hover:bg-fairway hover:text-cream md:inline-flex"
+      class="hidden items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest2 text-charcoal-muted transition-colors duration-200 hover:text-fairway md:inline-flex"
       download
     >
-      Resume · PDF
+      Resume
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M6 1V8M6 8L3 5M6 8L9 5M2 10H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </a>
 
     <!-- Mobile: just the resume CTA — content hub is one scroll away. -->

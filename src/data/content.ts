@@ -119,15 +119,11 @@ export const about = {
 export const scorecard = {
   title: 'Career Highlights',
   caption:
-    'Nine holes through a decade of executive support — the through-lines that show up in every round.',
+    'Through-lines from a decade of executive support — the highlights that show up in every round.',
   stats: [
     { company: 'LinkedIn', label: 'Tenure at LinkedIn', value: '10+ Yrs', par: 'Long Game' },
     { company: 'LinkedIn', label: 'Office of the CEO', value: 'Escalation Point', par: 'Audience' },
-    { company: 'LinkedIn', label: 'Microsoft 365 · Azure', value: 'Cloud Operations', par: 'Cloud' },
-    { company: 'LinkedIn', label: 'Identity & Access', value: 'Entra · Okta · AD', par: 'Trust' },
     { company: 'LinkedIn', label: 'PowerShell Automation', value: 'Workflow Reduction', par: 'Tooling' },
-    { company: 'LinkedIn', label: 'Executive AV / Events', value: 'Worldwide', par: 'Production' },
-    { company: 'LinkedIn', label: 'macOS · Windows · iOS', value: 'Full Stack', par: 'Endpoints' },
     { company: 'Microsoft', label: 'Azure Administrator', value: 'Microsoft Certified', par: 'Credentials' },
     { company: 'Tip10', label: 'Tip10 Technologies', value: 'Founder · Side Round', par: 'Discipline' },
   ] as ScorecardStat[],

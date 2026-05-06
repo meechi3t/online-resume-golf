@@ -9,7 +9,7 @@
 export type NavItem = { label: string; href: string };
 
 export type ScorecardStat = {
-  hole: string; // e.g. "01"
+  company: string; // short company tag, e.g. "LinkedIn", "Microsoft", "Tip10"
   label: string; // e.g. "Years at LinkedIn"
   value: string; // e.g. "10+"
   par: string; // e.g. "Tenure"
@@ -121,15 +121,15 @@ export const scorecard = {
   caption:
     'Nine holes through a decade of executive support — the through-lines that show up in every round.',
   stats: [
-    { hole: '01', label: 'Tenure at LinkedIn', value: '10+ Yrs', par: 'Long Game' },
-    { hole: '02', label: 'Office of the CEO', value: 'Escalation Point', par: 'Audience' },
-    { hole: '03', label: 'Microsoft 365 · Azure', value: 'Cloud Operations', par: 'Cloud' },
-    { hole: '04', label: 'Identity & Access', value: 'Entra · Okta · AD', par: 'Trust' },
-    { hole: '05', label: 'PowerShell Automation', value: 'Workflow Reduction', par: 'Tooling' },
-    { hole: '06', label: 'Executive AV / Events', value: 'Worldwide', par: 'Production' },
-    { hole: '07', label: 'macOS · Windows · iOS', value: 'Full Stack', par: 'Endpoints' },
-    { hole: '08', label: 'Azure Administrator', value: 'Microsoft Certified', par: 'Credentials' },
-    { hole: '09', label: 'Tip10 Technologies', value: 'Founder · Side Round', par: 'Discipline' },
+    { company: 'LinkedIn', label: 'Tenure at LinkedIn', value: '10+ Yrs', par: 'Long Game' },
+    { company: 'LinkedIn', label: 'Office of the CEO', value: 'Escalation Point', par: 'Audience' },
+    { company: 'LinkedIn', label: 'Microsoft 365 · Azure', value: 'Cloud Operations', par: 'Cloud' },
+    { company: 'LinkedIn', label: 'Identity & Access', value: 'Entra · Okta · AD', par: 'Trust' },
+    { company: 'LinkedIn', label: 'PowerShell Automation', value: 'Workflow Reduction', par: 'Tooling' },
+    { company: 'LinkedIn', label: 'Executive AV / Events', value: 'Worldwide', par: 'Production' },
+    { company: 'LinkedIn', label: 'macOS · Windows · iOS', value: 'Full Stack', par: 'Endpoints' },
+    { company: 'Microsoft', label: 'Azure Administrator', value: 'Microsoft Certified', par: 'Credentials' },
+    { company: 'Tip10', label: 'Tip10 Technologies', value: 'Founder · Side Round', par: 'Discipline' },
   ] as ScorecardStat[],
 };
 

@@ -76,7 +76,8 @@ import { hero, site } from '../data/content';
       class="mt-4 max-w-4xl text-balance font-display text-5xl leading-[1.04] text-cream sm:text-6xl lg:text-7xl animate-fade-up"
       style="animation-delay: 80ms"
     >
-      {hero.headline}
+      <span class="block">{hero.headline[0]}</span>
+      <span class="mt-2 block sm:mt-3">{hero.headline[1]}</span>
     </h1>
 
     <p

@@ -51,6 +51,7 @@ export default {
       animation: {
         'fade-up': 'fadeUp 0.7s ease-out both',
         'fade-in': 'fadeIn 0.9s ease-out both',
+        'fade-in-right': 'fadeInRight 1s ease-out both',
       },
       keyframes: {
         fadeUp: {
@@ -60,6 +61,10 @@ export default {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(40px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
     },

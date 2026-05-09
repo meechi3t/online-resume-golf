@@ -7,13 +7,13 @@
  *   md and below: portrait stacks above body, constrained to max-w-sm and centered.
  *
  * Portrait treatment (Option B): portrait-crop (4:5), rounded-3xl, hairline gold border,
- * fairway-green monogram placeholder until `about.portrait.src` is set in content.ts.
+ * inset cream ring. Image is optimized via Astro's <Image> component — AVIF + WebP +
+ * JPG fallback at responsive widths.
  */
+import { Picture } from 'astro:assets';
 import { about } from '../data/content';
+import portrait from '../assets/portrait.jpg';
 import SectionHeader from './SectionHeader.astro';
-
-const portrait = about.portrait;
-const hasPortraitSrc = Boolean(portrait.src);
 ---
 
 <section id="about" class="relative bg-cream-paper py-16 sm:py-20">
@@ -27,41 +27,23 @@ const hasPortraitSrc = Boolean(portrait.src);
           <!-- Framed plate: rounded square, hairline gold, soft shadow, inset cream ring. -->
           <figure
             class="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-gold/60 bg-fairway shadow-card ring-1 ring-inset ring-cream/10"
-            role={hasPortraitSrc ? undefined : 'img'}
-            aria-label={hasPortraitSrc ? undefined : `Placeholder for ${portrait.alt}'s portrait`}
           >
-            {hasPortraitSrc ? (
-              <img
-                src={portrait.src}
-                alt={portrait.alt}
-                width="800"
-                height="1000"
-                loading="lazy"
-                decoding="async"
-                class="h-full w-full object-cover"
-              />
-            ) : (
-              <!-- Monogram placeholder: fairway-green plate with subtle grain, engraved DT, hairline rule, and label. -->
-              <div class="absolute inset-0 bg-fairway-grain bg-grain opacity-60"></div>
-              <div class="relative flex h-full w-full flex-col items-center justify-center px-6 text-center">
-                <span
-                  class="select-none font-display leading-none text-cream/90"
-                  style="font-size: clamp(5rem, 12vw, 8rem);"
-                  aria-hidden="true"
-                >
-                  DT
-                </span>
-                <span class="mt-5 block h-px w-12 bg-gold"></span>
-                <span class="mt-4 font-mono text-[10px] uppercase tracking-widest2 text-cream/60">
-                  Demetrius Tipton · Placeholder
-                </span>
-              </div>
-            )}
+            <Picture
+              src={portrait}
+              alt={about.portrait.alt}
+              formats={['avif', 'webp']}
+              fallbackFormat="jpg"
+              widths={[400, 600, 800, 1000]}
+              sizes="(min-width: 1024px) 40vw, 80vw"
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
           </figure>
 
           <!-- Caption strip below the framed plate -->
           <p class="mt-3 text-center font-mono text-[10px] uppercase tracking-widest2 text-charcoal-muted">
-            {portrait.caption}
+            {about.portrait.caption}
           </p>
         </div>
       </div>

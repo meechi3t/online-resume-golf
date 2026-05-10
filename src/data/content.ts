@@ -103,9 +103,9 @@ export const about = {
   eyebrow: 'Demetrius Tipton · About',
   title: 'On the Practice Tee.',
   body: [
-    "I’m an Executive Support Engineer at LinkedIn, where I support senior leadership and the teams around them in high-trust environments. My focus is simple. Keep systems reliable and make technology feel seamless when it matters most.",
-    "Over the past decade, I’ve worked across Microsoft 365, identity systems, and collaboration platforms, supporting executives through both day-to-day operations and high-pressure incidents. I’ve built automation to eliminate recurring issues, improved the stability of critical systems, and operated in environments where precision and discretion are expected.",
-    "I’m also the founder of Tip10 Technologies, a private technology practice built for founders, principals, and small teams who want a higher standard of support. Through Tip10, I provide onsite and virtual consulting, infrastructure guidance, and ongoing administrative support that is tailored to how my clients actually work.",
+    "I’m an Executive Support Engineer at LinkedIn, where I support senior leadership and the teams around them in high-trust environments.",
+    "Over the last 14 years, I’ve supported the greater organization and most recently its senior leaders — working across Microsoft 365, identity systems, and collaboration platforms through both day-to-day operations and high-pressure incidents. I’ve built automation to eliminate recurring issues, improved the stability of critical systems, and operated in environments where precision and discretion are expected.",
+    "I’m also the founder of Tip10 Technologies, a boutique consulting practice built for founders, principals, and small teams who want a higher standard of support. Through Tip10, I provide onsite and virtual consulting, IT business strategy that meets my clients where they are, and ongoing administrative support that is tailored to how my clients actually work.",
     "My approach is direct and intentional. The goal is not just to fix problems, but to design systems that run cleanly, scale properly, and remove friction.",
   ],
   // Portrait — Option B (portrait crop, rounded square, gold hairline).

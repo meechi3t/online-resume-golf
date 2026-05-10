@@ -1,4 +1,32 @@
-User-agent: *
-Allow: /
+# This site is intentionally unindexed.
+# It is shared by direct link and not meant to appear in search results.
 
-Sitemap: https://demetrius.tip10.tech/sitemap-index.xml
+User-agent: *
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /

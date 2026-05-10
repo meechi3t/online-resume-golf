@@ -10,9 +10,9 @@ export type NavItem = { label: string; href: string };
 
 export type ScorecardStat = {
   company: string; // short company tag, e.g. "LinkedIn", "Microsoft", "Tip10"
-  label: string; // e.g. "Years at LinkedIn"
-  value: string; // e.g. "10+"
-  par: string; // e.g. "Tenure"
+  label: string; // Discipline column — e.g. "Tenure"
+  detail: string; // Detail column — e.g. "11+ Yrs"
+  category: string; // Category column — e.g. "Long Game"
 };
 
 export type TrophyWin = {
@@ -122,13 +122,15 @@ export const about = {
 export const scorecard = {
   title: 'Career Highlights',
   caption:
-    'Through-lines from a decade of executive support — the highlights that show up in every round.',
+    'Through-lines from 14 years of IT support — the highlights that show up in every round.',
   stats: [
-    { company: 'LinkedIn', label: 'Tenure at LinkedIn', value: '10+ Yrs', par: 'Long Game' },
-    { company: 'LinkedIn', label: 'Senior Leadership', value: 'Escalation Point', par: 'Audience' },
-    { company: 'LinkedIn', label: 'PowerShell Automation', value: 'Workflow Reduction', par: 'Tooling' },
-    { company: 'Microsoft', label: 'Azure Administrator', value: 'Microsoft Certified', par: 'Credentials' },
-    { company: 'Tip10', label: 'Tip10 Technologies', value: 'Founder · Side Round', par: 'Discipline' },
+    { company: 'Multi', label: 'IT Support · Career', detail: '14 Years', category: 'Long Game' },
+    { company: 'LinkedIn', label: 'Tenure', detail: '11+ Yrs', category: 'Long Game' },
+    { company: 'LinkedIn', label: 'Senior Leadership', detail: 'Escalation Point', category: 'Audience' },
+    { company: 'LinkedIn', label: 'Mailbox Management App', detail: 'PowerShell · Internal Tool', category: 'Tooling' },
+    { company: 'Microsoft', label: 'Azure Administrator', detail: 'Microsoft Certified', category: 'Credentials' },
+    { company: 'Tip10', label: 'Tip10 Technologies', detail: 'Founder', category: 'Discipline' },
+    { company: 'Tip10', label: 'Mailbox Admin Teams Bot', detail: 'Exchange Online · Conversational', category: 'Automation' },
   ] as ScorecardStat[],
 };
 

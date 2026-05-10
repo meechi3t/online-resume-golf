@@ -22,7 +22,3 @@ yarn-error.log*
 !.vscode/extensions.json
 .idea/
 
-# Resume — kept OUT of the repo because the original contains a phone number.
-# Replace public/resume.pdf locally with a sanitized "public" version
-# (no phone, redacted contact info) and remove this line if you want to ship it.
-/public/resume.pdf

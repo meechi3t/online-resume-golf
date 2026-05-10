@@ -1,11 +1,16 @@
 ---
 import { nav, site } from '../data/content';
+
+// Component-local nav list: site nav + Resume download tail item.
+// Data file is unchanged; Resume is appended here so the overlay renders all
+// eight entry points without splitting the iteration logic.
+const overlayNav = [...nav, { label: 'Resume', href: site.resumePdf }];
 ---
 
 <header class="sticky top-0 z-40 border-b border-fairway/10 bg-cream/85 backdrop-blur supports-[backdrop-filter]:bg-cream/70">
   <div class="container-club flex h-16 items-center justify-between">
+    <!-- Brand cluster: monogram + name -->
     <a href="#top" class="group flex items-center gap-3">
-      <!-- Monogram crest: minimal "DT" inside a hairline-gold ring. -->
       <span
         class="grid h-9 w-9 place-items-center rounded-full border border-gold/60 bg-fairway font-display text-sm font-medium text-cream transition-all duration-300 group-hover:border-gold"
         aria-hidden="true"
@@ -19,40 +24,159 @@ import { nav, site } from '../data/content';
       </span>
     </a>
 
-    <nav aria-label="Primary" class="hidden md:block">
-      <ul class="flex items-center gap-7">
-        {nav.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class="font-mono text-[11px] uppercase tracking-widest2 text-charcoal-muted transition-colors duration-200 hover:text-fairway"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-        <li>
-          <a
-            href={site.resumePdf}
-            class="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest2 text-charcoal-muted transition-colors duration-200 hover:text-fairway"
-            download
-          >
-            Resume
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <path d="M6 1V8M6 8L3 5M6 8L9 5M2 10H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Mobile: just the resume CTA — content hub is one scroll away. -->
-    <a
-      href="#contact"
-      class="rounded-full border border-fairway/30 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest2 text-fairway md:hidden"
+    <!-- Hamburger button -->
+    <button
+      type="button"
+      id="nav-toggle"
+      class="grid h-10 w-10 place-items-center rounded-full text-fairway transition-colors hover:bg-fairway/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-overlay"
     >
-      Contact
-    </a>
+      <span class="sr-only">Menu</span>
+      <svg class="h-5 w-5 nav-icon-bars" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="17" y2="6" />
+        <line x1="3" y1="10" x2="17" y2="10" />
+        <line x1="3" y1="14" x2="17" y2="14" />
+      </svg>
+      <svg class="h-5 w-5 nav-icon-x hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+        <line x1="5" y1="5" x2="15" y2="15" />
+        <line x1="15" y1="5" x2="5" y2="15" />
+      </svg>
+    </button>
   </div>
   <div class="hairline-gold"></div>
 </header>
+
+<!-- Full-screen overlay -->
+<div
+  id="nav-overlay"
+  data-state="closed"
+  class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-[400ms] ease-out data-[state=open]:flex data-[state=open]:opacity-100"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="nav-overlay-heading"
+>
+  <!-- Backdrop: solid fairway-dark with grain -->
+  <div class="absolute inset-0 -z-10 bg-fairway-dark" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-fairway-grain bg-grain opacity-50" aria-hidden="true"></div>
+
+  <!-- Hairline-gold corner brackets (matching trophy/recommendation card chrome) -->
+  <span class="pointer-events-none absolute left-6 top-6 h-4 w-4 border-l border-t border-gold/60"></span>
+  <span class="pointer-events-none absolute right-6 top-6 h-4 w-4 border-r border-t border-gold/60"></span>
+  <span class="pointer-events-none absolute bottom-6 left-6 h-4 w-4 border-b border-l border-gold/60"></span>
+  <span class="pointer-events-none absolute bottom-6 right-6 h-4 w-4 border-b border-r border-gold/60"></span>
+
+  <!-- Close button (top-right, mirrors hamburger position) -->
+  <button
+    type="button"
+    id="nav-close"
+    class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full text-cream transition-colors hover:bg-cream/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-fairway-dark"
+    aria-label="Close menu"
+  >
+    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+      <line x1="5" y1="5" x2="15" y2="15" />
+      <line x1="15" y1="5" x2="5" y2="15" />
+    </svg>
+  </button>
+
+  <!-- Centered menu -->
+  <nav class="m-auto flex w-full max-w-2xl flex-col items-center gap-1 px-6 py-12 text-center">
+    <h2 id="nav-overlay-heading" class="sr-only">Site navigation</h2>
+
+    <!-- Eyebrow above the menu -->
+    <p class="font-mono text-[11px] uppercase tracking-widest2 text-gold">
+      Demetrius Tipton · Tip10 CC
+    </p>
+    <span class="mt-3 h-px w-12 bg-gold/60"></span>
+
+    <ul class="mt-10 flex flex-col items-center gap-6">
+      {overlayNav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="group inline-flex items-center gap-2 font-display text-3xl text-cream transition-colors duration-200 hover:text-gold focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-fairway-dark sm:text-4xl"
+            data-nav-link
+            {...(item.label === 'Resume' ? { download: true } : {})}
+          >
+            <span class="underline-offset-[6px] group-hover:underline group-hover:decoration-gold/70">
+              {item.label}
+            </span>
+            {item.label === 'Resume' && (
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="text-gold/70 transition-transform group-hover:translate-y-0.5" aria-hidden="true">
+                <path d="M7 1V11M7 11L4 8M7 11L10 8M2 13H12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- Bottom-right hint -->
+  <p class="absolute bottom-7 right-6 font-mono text-[10px] uppercase tracking-widest2 text-cream/50 sm:bottom-8 sm:right-10">
+    Close · ESC
+  </p>
+</div>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const overlay = document.getElementById('nav-overlay');
+  const close = document.getElementById('nav-close');
+  const links = overlay?.querySelectorAll<HTMLElement>('[data-nav-link]') ?? [];
+  const iconBars = toggle?.querySelector('.nav-icon-bars');
+  const iconX = toggle?.querySelector('.nav-icon-x');
+  let lastFocus: HTMLElement | null = null;
+
+  const open = () => {
+    if (!overlay || !toggle) return;
+    lastFocus = document.activeElement as HTMLElement | null;
+    overlay.classList.remove('hidden');
+    requestAnimationFrame(() => overlay.setAttribute('data-state', 'open'));
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    iconBars?.classList.add('hidden');
+    iconX?.classList.remove('hidden');
+    setTimeout(() => links[0]?.focus(), 50);
+  };
+
+  const closeMenu = () => {
+    if (!overlay || !toggle) return;
+    overlay.setAttribute('data-state', 'closed');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    iconBars?.classList.remove('hidden');
+    iconX?.classList.add('hidden');
+    setTimeout(() => overlay.classList.add('hidden'), 400);
+    lastFocus?.focus?.();
+  };
+
+  toggle?.addEventListener('click', () => {
+    overlay?.getAttribute('data-state') === 'open' ? closeMenu() : open();
+  });
+  close?.addEventListener('click', closeMenu);
+
+  // Close on ESC + simple focus trap
+  document.addEventListener('keydown', (e) => {
+    if (overlay?.getAttribute('data-state') !== 'open') return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeMenu();
+    } else if (e.key === 'Tab') {
+      const focusables = overlay.querySelectorAll<HTMLElement>('a[href], button');
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  // Close on item click + scroll to anchor
+  links.forEach((link) => link.addEventListener('click', () => closeMenu()));
+</script>

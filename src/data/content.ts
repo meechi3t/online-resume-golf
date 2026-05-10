@@ -105,7 +105,7 @@ export const about = {
   body: [
     "I’m an Executive Support Engineer at LinkedIn, where I support senior leadership and the teams around them in high-trust environments.",
     "Over the last 14 years, I’ve supported the greater organization and most recently its senior leaders — working across Microsoft 365, identity systems, and collaboration platforms through both day-to-day operations and high-pressure incidents. I’ve built automation to eliminate recurring issues, improved the stability of critical systems, and operated in environments where precision and discretion are expected.",
-    "I’m also the founder of Tip10 Technologies, a boutique consulting practice built for founders, principals, and small teams who want a higher standard of support. Through Tip10, I provide onsite and virtual consulting, IT business strategy that meets my clients where they are, and ongoing administrative support that is tailored to how my clients actually work.",
+    "I built Tip10 Technologies for founders, principals, and small teams. A boutique practice that meets clients where they are and ensures technology removes friction instead of creating it.",
     "My approach is direct and intentional. The goal is not just to fix problems, but to design systems that run cleanly, scale properly, and remove friction.",
   ],
   // Portrait — Option B (portrait crop, rounded square, gold hairline).
@@ -328,8 +328,8 @@ export const recommendations = {
     {
       initials: 'SB',
       name: 'Saygbe Biawogi',
-      role: 'Senior Technical Analyst, Molecular Devices',
-      relationship: 'Former direct manager · Menlo College OIT',
+      role: 'Senior Technical Analyst',
+      relationship: 'Molecular Devices',
       quote:
         'He took his responsibility very seriously. He courageously took over the management of our iPad re-imaging cart and ran it effectively with minimum direction from the senior IT staff.',
     },

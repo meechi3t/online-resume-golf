@@ -291,7 +291,7 @@ export const recommendations = {
   eyebrow: "The Members' Lounge · On the Record",
   title: 'What the Members Say.',
   caption:
-    'Excerpts shared with permission — selected for the through-lines they capture, not for the polish.',
+    "Verbatim excerpts from people I’ve had the privilege to work with.",
   items: [
     {
       initials: 'TS',

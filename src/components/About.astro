@@ -51,36 +51,73 @@ import SectionHeader from './SectionHeader.astro';
       <!-- Copy column (right on lg+, below on smaller) -->
       <div class="lg:col-span-7">
         <div class="space-y-4 sm:space-y-5">
-          {about.body.map((paragraph) => {
-            // First mention of "Tip10 Technologies" (P3) is rendered as an
-            // external link to tip10.tech. Subsequent mentions stay plain.
-            const linkText = 'Tip10 Technologies';
-            if (paragraph.includes(linkText)) {
-              const linkIndex = paragraph.indexOf(linkText);
-              const prefix = paragraph.slice(0, linkIndex);
-              const suffix = paragraph.slice(linkIndex + linkText.length);
+          {(() => {
+            // Each token in this map gets wrapped in an external anchor — but
+            // only on its FIRST occurrence in a given paragraph. Subsequent
+            // mentions of the same token (and shorter substrings of it, e.g.
+            // a bare "Tip10" after "Tip10 Technologies" was already linked)
+            // remain plain text.
+            const linkMap = [
+              { text: 'LinkedIn', href: 'https://www.linkedin.com' },
+              { text: 'Tip10 Technologies', href: 'https://tip10.tech' },
+            ];
+
+            const anchorClass =
+              'font-medium text-fairway underline decoration-gold/60 underline-offset-4 transition-colors duration-200 hover:text-gold hover:decoration-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream';
+
+            // Splits a paragraph into a node array. Walks the remaining text,
+            // finds the earliest unused token, and wraps that single hit in an
+            // anchor; the suffix is processed with that token removed from the
+            // available set. Order of `tokens` is irrelevant — earliest match
+            // in the string wins, which keeps in-prose ordering natural.
+            const renderParagraphWithLinks = (
+              text: string,
+              tokens: { text: string; href: string }[],
+            ): (string | { kind: 'link'; text: string; href: string })[] => {
+              if (tokens.length === 0 || text.length === 0) return [text];
+              let earliest: { token: typeof tokens[number]; index: number } | null = null;
+              for (const token of tokens) {
+                const index = text.indexOf(token.text);
+                if (index === -1) continue;
+                if (earliest === null || index < earliest.index) {
+                  earliest = { token, index };
+                }
+              }
+              if (earliest === null) return [text];
+              const { token, index } = earliest;
+              const remainingTokens = tokens.filter((t) => t.text !== token.text);
+              const prefix = text.slice(0, index);
+              const suffix = text.slice(index + token.text.length);
+              return [
+                prefix,
+                { kind: 'link' as const, text: token.text, href: token.href },
+                ...renderParagraphWithLinks(suffix, remainingTokens),
+              ];
+            };
+
+            return about.body.map((paragraph) => {
+              const nodes = renderParagraphWithLinks(paragraph, linkMap);
               return (
                 <p class="text-lg leading-relaxed text-charcoal sm:text-xl">
-                  {prefix}
-                  <a
-                    href="https://tip10.tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="font-medium text-fairway underline decoration-gold/60 underline-offset-4 transition-colors duration-200 hover:text-gold hover:decoration-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-                  >
-                    {linkText}
-                    <span class="sr-only">(opens in a new tab)</span>
-                  </a>
-                  {suffix}
+                  {nodes.map((node) =>
+                    typeof node === 'string' ? (
+                      node
+                    ) : (
+                      <a
+                        href={node.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={anchorClass}
+                      >
+                        {node.text}
+                        <span class="sr-only">(opens in a new tab)</span>
+                      </a>
+                    ),
+                  )}
                 </p>
               );
-            }
-            return (
-              <p class="text-lg leading-relaxed text-charcoal sm:text-xl">
-                {paragraph}
-              </p>
-            );
-          })}
+            });
+          })()}
         </div>
         <div class="mt-8 flex items-center gap-3">
           <span class="rule-gold"></span>

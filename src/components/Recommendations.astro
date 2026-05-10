@@ -33,11 +33,7 @@ const buildSearchUrl = (name: string) =>
           <span class="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b border-l border-gold/60"></span>
           <span class="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b border-r border-gold/60"></span>
 
-          <div class="flex items-center justify-between">
-            <span class="label-tag">
-              <span class="h-1 w-1 rounded-full bg-gold"></span>
-              {rec.initials} · {rec.role.split('·')[0]!.trim()}
-            </span>
+          <div class="flex items-center justify-end">
             <!-- Quotation mark icon -->
             <svg
               class="text-gold/80 transition-transform duration-500 group-hover:scale-110"

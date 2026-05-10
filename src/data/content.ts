@@ -329,7 +329,7 @@ export const recommendations = {
       initials: 'SB',
       name: 'Saygbe Biawogi',
       role: 'Senior Technical Analyst, Molecular Devices',
-      relationship: 'Former direct manager · Menlo College OIT (2013–2014)',
+      relationship: 'Former direct manager · Menlo College OIT',
       quote:
         'He took his responsibility very seriously. He courageously took over the management of our iPad re-imaging cart and ran it effectively with minimum direction from the senior IT staff.',
     },

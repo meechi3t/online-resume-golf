@@ -125,7 +125,7 @@ export const scorecard = {
     'Through-lines from a decade of executive support — the highlights that show up in every round.',
   stats: [
     { company: 'LinkedIn', label: 'Tenure at LinkedIn', value: '10+ Yrs', par: 'Long Game' },
-    { company: 'LinkedIn', label: 'Office of the CEO', value: 'Escalation Point', par: 'Audience' },
+    { company: 'LinkedIn', label: 'Senior Leadership', value: 'Escalation Point', par: 'Audience' },
     { company: 'LinkedIn', label: 'PowerShell Automation', value: 'Workflow Reduction', par: 'Tooling' },
     { company: 'Microsoft', label: 'Azure Administrator', value: 'Microsoft Certified', par: 'Credentials' },
     { company: 'Tip10', label: 'Tip10 Technologies', value: 'Founder · Side Round', par: 'Discipline' },
@@ -140,9 +140,9 @@ export const trophyCase = {
   wins: [
     {
       marker: 'WIN 01',
-      title: 'Office of the CEO Escalation Point',
+      title: 'Senior Leadership Escalation Point',
       body:
-        'Specific escalation point for the Office of the CEO at LinkedIn — the kind of trust that is earned, not requested, and only granted to engineers who stay calm when the room is.',
+        'Trusted escalation point for senior leadership at LinkedIn — the kind of trust that is earned, not requested, and only granted to engineers who stay calm when the room is.',
     },
     {
       marker: 'WIN 02',
@@ -180,7 +180,7 @@ export const experience = {
       location: 'San Francisco Bay Area',
       focus: [
         'Tier 1 & 2 IT support for LinkedIn’s Senior Leadership team',
-        'Specific escalation point for the Office of the CEO',
+        'Trusted escalation point for senior leadership',
         'Solve unique business cases surfaced by the executive team',
         'Cross-functional partner during executive technology rollouts — minimize impact on executive audiences',
         'Deliver Audio/Visual support for onsite and offsite events involving C-Level executives',

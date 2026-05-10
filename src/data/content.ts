@@ -104,9 +104,8 @@ export const about = {
   title: 'On the Practice Tee.',
   body: [
     "I’m an Executive Support Engineer at LinkedIn, where I support senior leadership and the teams around them in high-trust environments.",
-    "Over the last 14 years, I’ve supported the greater organization and most recently its senior leaders — working across Microsoft 365, identity systems, and collaboration platforms through both day-to-day operations and high-pressure incidents. I’ve built automation to eliminate recurring issues, improved the stability of critical systems, and operated in environments where precision and discretion are expected.",
+    "Over the last 14 years, I’ve provided IT support to members at all levels of an organization, most recently specializing in supporting senior executives. I’ve worked across Microsoft 365, identity systems, and collaboration platforms through both day-to-day operations and high-pressure incidents. I’ve built automation to ease the resolution of recurring issues, leveraged interpersonal skills to articulate technical issues to non-technical customers, and operated in environments where precision and discretion are expected.",
     "I built Tip10 Technologies for founders, principals, and small teams. A boutique practice that meets clients where they are and ensures technology removes friction instead of creating it.",
-    "My approach is direct and intentional. The goal is not just to fix problems, but to design systems that run cleanly, scale properly, and remove friction.",
   ],
   // Portrait — Option B (portrait crop, rounded square, gold hairline).
   // The image asset itself lives at `src/assets/portrait.jpg` and is imported directly

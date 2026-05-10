@@ -325,14 +325,6 @@ export const recommendations = {
       quote:
         'Proactive, result-oriented, responsible and technically a sound employee — always ready to put all his energy and time to get the job done.',
     },
-    {
-      initials: 'SB',
-      name: 'Saygbe Biawogi',
-      role: 'Senior Technical Analyst',
-      relationship: 'Molecular Devices',
-      quote:
-        'He took his responsibility very seriously. He courageously took over the management of our iPad re-imaging cart and ran it effectively with minimum direction from the senior IT staff.',
-    },
   ] as Recommendation[],
 };
 

@@ -21,109 +21,114 @@ import heroImage from '../assets/hero.jpg';
   ></div>
 
   <!--
-    Decorative fairway-sweep SVG removed in favor of the hero photograph.
-    See git history (feat/hero-image) for the previous decorative element.
+    Full-bleed hero image on right, lg+ only. Absolutely positioned so text
+    keeps its natural flow on the left. A left-to-right fairway-green gradient
+    fades the brand color into the photograph.
   -->
+  <div
+    class="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] lg:block animate-fade-in-right"
+    style="animation-delay: 200ms"
+  >
+    <Picture
+      src={heroImage}
+      formats={['avif', 'webp']}
+      fallbackFormat="jpg"
+      widths={[600, 800, 1000, 1200]}
+      sizes="55vw"
+      alt="Coastal golf course at sunrise — the Tipton Course in spirit"
+      loading="eager"
+      fetchpriority="high"
+      pictureAttributes={{ class: 'absolute inset-0 h-full w-full' }}
+      class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-fairway via-fairway/50 to-transparent"
+      aria-hidden="true"
+    ></div>
+  </div>
 
   <div class="container-club relative pb-24 pt-28 sm:pb-32 sm:pt-36 lg:pb-40 lg:pt-44">
-    <div class="lg:grid lg:grid-cols-12 lg:items-center lg:gap-12">
-      <!-- Left column: text content -->
-      <div class="lg:col-span-7">
-        <!-- Course tag — like a clubhouse plaque -->
-        <div class="mb-10 flex items-center gap-3 animate-fade-in">
-          <span class="h-px w-10 bg-gold"></span>
-          <span class="font-mono text-[11px] uppercase tracking-widest2 text-gold">
-            {hero.eyebrow}
-          </span>
-        </div>
-
-        <div class="space-y-1">
-          {hero.titles.map((line, i) => (
-            <p
-              class="font-mono text-xs uppercase tracking-widest2 text-cream/60 animate-fade-up"
-              style={`animation-delay: ${i * 60}ms`}
-            >
-              {line}
-            </p>
-          ))}
-        </div>
-
-        <p
-          class="mt-3 font-display text-xl italic text-gold/90 animate-fade-up sm:text-2xl"
-          style="animation-delay: 40ms"
-        >
-          {hero.tagline}
-        </p>
-
-        <h1
-          class="mt-4 max-w-4xl text-balance font-display text-5xl leading-[1.04] text-cream sm:text-6xl lg:text-7xl animate-fade-up"
-          style="animation-delay: 80ms"
-        >
-          <span class="block">{hero.headline[0]}</span>
-          <span class="mt-2 block sm:mt-3">{hero.headline[1]}</span>
-        </h1>
-
-        <p
-          class="mt-8 max-w-2xl text-balance text-lg leading-relaxed text-cream/80 sm:text-xl animate-fade-up"
-          style="animation-delay: 160ms"
-        >
-          {hero.intro}
-        </p>
-
-        <div
-          class="mt-12 flex flex-wrap items-center gap-3 animate-fade-up"
-          style="animation-delay: 240ms"
-        >
-          <a
-            href="#experience"
-            class="btn bg-gold text-fairway-dark hover:bg-gold-soft hover:shadow-card-hover"
-          >
-            View Experience
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a
-            href={site.resumePdf}
-            download
-            class="btn border border-cream/30 bg-transparent text-cream hover:border-gold hover:bg-cream/5"
-          >
-            Download Resume
-          </a>
-          <a
-            href="#contact"
-            class="btn bg-transparent text-cream/80 hover:text-cream"
-          >
-            Contact Me
-          </a>
-        </div>
+    <div class="lg:max-w-2xl">
+      <!-- Mini-eyebrow above the name: hairline gold rule + The Member -->
+      <div class="mb-8 flex items-center gap-3 animate-fade-in">
+        <span class="h-px w-10 bg-gold"></span>
+        <span class="font-mono text-[11px] uppercase tracking-widest2 text-gold">
+          The Member
+        </span>
       </div>
 
-      <!-- Right column: hero image. On mobile, stacks between buttons and plaque. -->
-      <div
-        class="mt-12 lg:col-span-5 lg:mt-0 animate-fade-in-right"
-        style="animation-delay: 200ms"
+      <!-- Name promoted to display serif, large cream -->
+      <p class="font-display text-3xl text-cream sm:text-4xl animate-fade-up">
+        {hero.eyebrow}
+      </p>
+
+      <!-- Tagline: italic gold display -->
+      <p
+        class="mt-4 font-display text-xl italic text-gold/90 animate-fade-up sm:text-2xl"
+        style="animation-delay: 80ms"
       >
-        <div class="relative aspect-[3/2] overflow-hidden rounded-2xl border border-gold/30 shadow-card lg:aspect-[4/5]">
-          <Picture
-            src={heroImage}
-            formats={['avif', 'webp']}
-            fallbackFormat="jpg"
-            widths={[600, 800, 1000, 1200]}
-            sizes="(min-width: 1024px) 40vw, 100vw"
-            alt="Coastal golf course at sunrise — the Tipton Course in spirit"
-            loading="eager"
-            fetchpriority="high"
-            pictureAttributes={{ class: 'absolute inset-0 h-full w-full' }}
-            class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
-          />
-        </div>
+        {hero.tagline}
+      </p>
+
+      <!-- Positions: stacked mono caps small -->
+      <div class="mt-4 space-y-1 animate-fade-up" style="animation-delay: 160ms">
+        {hero.titles.map((line, i) => (
+          <p
+            class="font-mono text-xs uppercase tracking-widest2 text-cream/60"
+            style={`animation-delay: ${160 + i * 40}ms`}
+          >
+            {line}
+          </p>
+        ))}
       </div>
 
-      <!-- Course plaque — full width under both columns on lg+ -->
-      <div
-        class="mt-20 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-cream/10 pt-6 animate-fade-up lg:col-span-12"
+      <h1
+        class="mt-10 max-w-3xl text-balance font-display text-5xl leading-[1.04] text-cream sm:text-6xl lg:text-7xl animate-fade-up"
+        style="animation-delay: 240ms"
+      >
+        <span class="block">{hero.headline[0]}</span>
+        <span class="mt-2 block sm:mt-3">{hero.headline[1]}</span>
+      </h1>
+
+      <p
+        class="mt-8 max-w-xl text-balance text-lg leading-relaxed text-cream/80 sm:text-xl animate-fade-up"
         style="animation-delay: 320ms"
+      >
+        {hero.intro}
+      </p>
+
+      <div
+        class="mt-12 flex flex-wrap items-center gap-3 animate-fade-up"
+        style="animation-delay: 400ms"
+      >
+        <a
+          href="#experience"
+          class="btn bg-gold text-fairway-dark hover:bg-gold-soft hover:shadow-card-hover"
+        >
+          View Experience
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a
+          href={site.resumePdf}
+          download
+          class="btn border border-cream/30 bg-transparent text-cream hover:border-gold hover:bg-cream/5"
+        >
+          Download Resume
+        </a>
+        <a
+          href="#contact"
+          class="btn bg-transparent text-cream/80 hover:text-cream"
+        >
+          Contact Me
+        </a>
+      </div>
+
+      <!-- Course plaque -->
+      <div
+        class="mt-20 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-cream/10 pt-6 animate-fade-up"
+        style="animation-delay: 480ms"
       >
         <span class="font-mono text-[10px] uppercase tracking-widest2 text-cream/50">
           {hero.course}

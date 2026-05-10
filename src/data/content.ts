@@ -140,15 +140,15 @@ export const trophyCase = {
   wins: [
     {
       marker: 'WIN 01',
-      title: 'Senior Leadership Escalation Point',
+      title: 'Senior Executive Support',
       body:
-        'Trusted escalation point for senior leadership at LinkedIn — the kind of trust that is earned, not requested, and only granted to engineers who stay calm when the room is.',
+        "Trusted go-to for LinkedIn's senior executives when something has to work — the kind of role earned by staying calm in the moments that matter most, not announced in a job description.",
     },
     {
       marker: 'WIN 02',
       title: 'Automation that Reduces Friction',
       body:
-        'Built and deployed PowerShell-based applications and automations that reduce tech friction on executives and across the IT org — turning hours of repetitive work into a single, quiet command.',
+        'Built and deployed a PowerShell-based Mailbox Management App for our team — replacing the manual back-and-forth that used to surround mailbox provisioning, distribution-list edits, and shared-mailbox tweaks. Hours of repetitive work compressed into a single, quiet command.',
     },
     {
       marker: 'WIN 03',

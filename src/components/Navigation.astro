@@ -7,7 +7,7 @@ import { nav, site } from '../data/content';
 const overlayNav = [...nav, { label: 'Resume', href: site.resumePdf }];
 ---
 
-<header class="sticky top-0 z-40 border-b border-cream/10 bg-fairway-dark/80 backdrop-blur-md supports-[backdrop-filter]:bg-fairway-dark/60">
+<header class="sticky top-0 z-40 border-b border-cream/10 bg-fairway-dark/80 backdrop-blur-md supports-[backdrop-filter]:bg-fairway-dark/70">
   <div class="container-club flex h-16 items-center justify-between">
     <!-- Brand cluster: monogram + name -->
     <a href="#top" class="group flex items-center gap-3">
@@ -18,7 +18,10 @@ const overlayNav = [...nav, { label: 'Resume', href: site.resumePdf }];
         DT
       </span>
       <span class="flex items-baseline leading-tight">
-        <span class="font-display text-base text-cream">
+        <span
+          data-nav-name
+          class="font-display text-base text-cream opacity-0 transition-opacity duration-300"
+        >
           {site.name}
         </span>
       </span>
@@ -179,4 +182,31 @@ const overlayNav = [...nav, { label: 'Resume', href: site.resumePdf }];
 
   // Close on item click + scroll to anchor
   links.forEach((link) => link.addEventListener('click', () => closeMenu()));
+
+  // Scroll-aware brand name: hide while hero is in view, fade in once
+  // the user has scrolled past it. Monogram (DT chip) stays visible always.
+  const heroSection = document.getElementById('top');
+  const nameSpans = document.querySelectorAll<HTMLElement>('[data-nav-name]');
+
+  if (heroSection && nameSpans.length) {
+    const nameObserver = new IntersectionObserver(
+      ([entry]) => {
+        // Hero >30% visible → hide name (user sees the big version in hero).
+        // Hero <30% visible (mostly scrolled past) → show name in nav.
+        const showName = !entry.isIntersecting || entry.intersectionRatio < 0.3;
+        nameSpans.forEach((span) => {
+          if (showName) {
+            span.classList.remove('opacity-0');
+            span.classList.add('opacity-100');
+          } else {
+            span.classList.remove('opacity-100');
+            span.classList.add('opacity-0');
+          }
+        });
+      },
+      { threshold: [0, 0.3, 0.5, 1] }
+    );
+
+    nameObserver.observe(heroSection);
+  }
 </script>

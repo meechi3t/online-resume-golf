@@ -89,7 +89,7 @@ export const hero = {
     'LinkedIn · Sr. Executive Support Engineer',
     'Tip10 Technologies · Founder',
   ],
-  tagline: 'Trusted Technical Partner.',
+  tagline: 'Trusted Technical Partner',
   headline: ['Executive IT Support.', 'Played with Precision.'],
   intro:
     'I specialize in white-glove technical support for senior leaders, workflow automations, and high-visibility moments where the technology simply has to work.',

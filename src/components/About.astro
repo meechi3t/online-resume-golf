@@ -103,15 +103,14 @@ import SectionHeader from './SectionHeader.astro';
                     typeof node === 'string' ? (
                       node
                     ) : (
-                      <a
-                        href={node.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class={anchorClass}
-                      >
-                        {node.text}
-                        <span class="sr-only">(opens in a new tab)</span>
-                      </a>
+                      // NOTE: children kept on a single line with no surrounding
+                      // whitespace. Astro preserves inter-element whitespace
+                      // inside <a> (unlike React/JSX), so a newline before
+                      // </a> would render as a literal space between the
+                      // sr-only span and the closing tag — visible as an
+                      // extra space before any punctuation that follows the
+                      // anchor (e.g. "LinkedIn ," instead of "LinkedIn,").
+                      <a href={node.href} target="_blank" rel="noopener noreferrer" class={anchorClass}>{node.text}<span class="sr-only">(opens in a new tab)</span></a>
                     ),
                   )}
                 </p>

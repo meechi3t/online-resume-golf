@@ -83,6 +83,63 @@
   .scorecard-row:hover {
     @apply bg-fairway/[0.04];
   }
+
+  /*
+    Section-aware header tone.
+    `header[data-nav-tone-aware]` carries `data-current-tone="dark"|"light"`;
+    descendant colors cascade from these blocks. A 300ms transition on
+    color-bearing properties keeps the swap smooth (and is suppressed by
+    the global prefers-reduced-motion rule for users who opt out).
+  */
+  header[data-nav-tone-aware] {
+    transition-property: background-color, border-color, color;
+    transition-duration: 300ms;
+  }
+
+  /* Dark mode — over fairway-toned sections (Hero, Toolbag, Contact). */
+  header[data-nav-tone-aware][data-current-tone='dark'] {
+    @apply bg-fairway-dark/80 border-cream/10;
+  }
+  @supports (backdrop-filter: blur(0)) {
+    header[data-nav-tone-aware][data-current-tone='dark'] {
+      @apply bg-fairway-dark/70;
+    }
+  }
+  header[data-nav-tone-aware][data-current-tone='dark'] [data-nav-name] {
+    @apply text-cream;
+  }
+  header[data-nav-tone-aware][data-current-tone='dark'] #nav-toggle {
+    @apply text-cream;
+  }
+  header[data-nav-tone-aware][data-current-tone='dark'] #nav-toggle:hover {
+    @apply bg-cream/10;
+  }
+  header[data-nav-tone-aware][data-current-tone='dark'] #nav-toggle {
+    --tw-ring-offset-color: #072A20; /* fairway-dark */
+  }
+
+  /* Light mode — over cream-toned sections (About, Highlights,
+     Experience, Trophy Case, Recommendations). */
+  header[data-nav-tone-aware][data-current-tone='light'] {
+    @apply bg-cream/85 border-fairway/10;
+  }
+  @supports (backdrop-filter: blur(0)) {
+    header[data-nav-tone-aware][data-current-tone='light'] {
+      @apply bg-cream/70;
+    }
+  }
+  header[data-nav-tone-aware][data-current-tone='light'] [data-nav-name] {
+    @apply text-fairway;
+  }
+  header[data-nav-tone-aware][data-current-tone='light'] #nav-toggle {
+    @apply text-fairway;
+  }
+  header[data-nav-tone-aware][data-current-tone='light'] #nav-toggle:hover {
+    @apply bg-fairway/10;
+  }
+  header[data-nav-tone-aware][data-current-tone='light'] #nav-toggle {
+    --tw-ring-offset-color: #FAF7F0; /* cream */
+  }
 }
 
 @layer utilities {
